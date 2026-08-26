@@ -1,0 +1,12 @@
+<?php require './layout/head.php'; ?>
+<h1>Login</h1>
+<form action="login_process.php" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    
+    <button type="submit">Login</button>
+</form>
+<?php require './layout/foot.php'; ?>
