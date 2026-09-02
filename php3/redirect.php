@@ -12,11 +12,17 @@ if($conn->connect_error) {
 
 
 if(isset($_POST['submit'])) {
+    $id = $_POST['id'];
     $fname = $_POST['fname'];
     $mname = $_POST['mname'];
     $lname = $_POST['lname'];
+    $age = $_POST['age'];
+    $gender = $_POST['gender'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $contact = $_POST['contact'];
 
-    $sql = "INSERT INTO persons(person_fname,person_mname,person_lname) VALUES('$fname', '$mname', '$lname')";
+    $sql = "INSERT INTO students(student_id,student_fname,student_mname,student_lname,student_age,student_gender,student_email,student_address,student_contact) VALUES('$id', '$fname', '$mname', '$lname', '$age', '$gender', '$email', '$address', '$contact')";
 
     if($conn->query($sql) === TRUE) {
         $isSuccess = true;

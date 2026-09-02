@@ -10,7 +10,11 @@ if(isset($_GET["submit"])) {
     if($_GET["student_fname"]) {$where[] = "student_fname LIKE '{$_GET["student_fname"]}%'"; }
     if($_GET["student_mname"]) {$where[] = "student_mname LIKE '{$_GET["student_mname"]}%'"; }
     if($_GET["student_lname"]) {$where[] = "student_lname LIKE '{$_GET["student_lname"]}%'"; }
+    if($_GET["student_age"]) {$where[] = "student_age LIKE '{$_GET["student_age"]}%'"; }
     if($_GET["student_gender"]) {$where[] = "student_gender LIKE '{$_GET["student_gender"]}%'"; }
+    if($_GET["student_email"]) {$where[] = "student_email LIKE '{$_GET["student_email"]}%'"; }
+    if($_GET["student_address"]) {$where[] = "student_address LIKE '{$_GET["student_address"]}%'"; }
+    if($_GET["student_contact"]) {$where[] = "student_contact LIKE '{$_GET["student_contact"]}%'"; }
 
     if(!(count($where) === 0)) {
         $query .= implode(" AND ", $where);
@@ -75,7 +79,11 @@ if(isset($_GET["submit"])) {
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
+                <th>Age</th>
                 <th>Gender</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Contact</th>
                 <th>Action</th>
             </tr>
 
@@ -94,12 +102,25 @@ if(isset($_GET["submit"])) {
                         <input type="text" name="student_lname" value="<?php echo isset($_GET['student_lname']) ? $_GET['student_lname'] : "";?>">
                     </th>
                     <th>
+                        <input type="text" name="student_age" value="<?php echo isset($_GET['student_age']) ? $_GET['student_age'] : "";?>">
+                    </th>
+                    <th>
                         <select name="student_gender" id="student_gender">
                             <option value="" selected>Select All</option>
                             <option value="M" <?php echo isset($_GET['student_gender']) ? (($_GET['student_gender']) == "M" ? "selected" : "") : "";?>>Male</option>
                             <option value="F" <?php echo isset($_GET['student_gender']) ? (($_GET['student_gender']) == "F" ? "selected" : "") : "";?>>Female</option>
                         </select>
                     </th>
+                    <th>
+                        <input type="text" name="student_email" value="<?php echo isset($_GET['student_email']) ? $_GET['student_email'] : "";?>">
+                    </th>
+                    <th>
+                        <input type="text" name="student_address" value="<?php echo isset($_GET['student_address']) ? $_GET['student_address'] : "";?>">
+                    </th>
+                    <th>
+                        <input type="text" name="student_contact" value="<?php echo isset($_GET['student_contact']) ? $_GET['student_contact'] : "";?>">
+                    </th>
+                    
                     <th>
                         <input type="submit" name="submit" value="Filter">
                     </th>
@@ -118,7 +139,11 @@ if(isset($_GET["submit"])) {
                                 <td>'. $value['student_fname'] .'</td>
                                 <td>'. $value['student_mname'] .'</td>
                                 <td>'. $value['student_lname'] .'</td>
+                                <td>'. $value['student_age'] .'</td>
                                 <td>'. $value['student_gender'] .'</td>
+                                <td>'. $value['student_email'] .'</td>
+                                <td>'. $value['student_address'] .'</td>
+                                <td>'. $value['student_contact'] .'</td>
                                 <td></td>
                             </tr>
                         ';
